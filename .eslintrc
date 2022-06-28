@@ -1,11 +1,6 @@
 {
-  "parser": "babel-eslint",
-  "extends": [
-    "airbnb",
-    "@natahouse",
-    "plugin:prettier/recommended",
-    "prettier/react"
-  ],
+  "parser": "@babel/eslint-parser",
+  "extends": ["airbnb", "plugin:prettier/recommended", "prettier"],
   "settings": {
     "import/resolver": {
       "node": {
@@ -26,6 +21,7 @@
     "import/no-extraneous-dependencies": "off",
     "camelcase": "off",
     "import/no-cycle": "off",
+    "react/no-array-index-key": "off",
     "no-use-before-define": [
       "error",
       { "functions": false, "classes": true, "variables": true }

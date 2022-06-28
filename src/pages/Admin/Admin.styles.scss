@@ -1,0 +1,13 @@
+.orders {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.userData {
+  flex: 0.5;
+}
+
+.actions {
+  flex: 0.5;
+}
