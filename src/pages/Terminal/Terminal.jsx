@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import socket from 'services/socket'
 
 export default function Terminal() {
   const [userData, setUserData] = useState(null)
   const [name, setName] = useState('')
   const [selectedOption, setSelectedOption] = useState('')
+  const [queuePosition, setQueuePosition] = useState(0)
 
   const optionList = [
     'Hamburguer',
@@ -17,6 +19,14 @@ export default function Terminal() {
 
   useEffect(() => {
     setSelectedOption(optionList[0])
+
+    socket.on('created', position => {
+      setQueuePosition(position + 1)
+    })
+
+    return () => {
+      socket.off('created')
+    }
   }, [])
 
   const localStorageData = JSON.parse(localStorage.getItem('queueData'))
@@ -31,6 +41,12 @@ export default function Terminal() {
           You are currently in position {queueData.queuePosition} in the queue.
         </p>
         <p>Você escolheu {queueData.selectedOption}</p>
+        <button
+          type="button"
+          onClick={() => localStorage.removeItem('queueData')}
+        >
+          clear
+        </button>
       </div>
     )
   }
@@ -44,23 +60,25 @@ export default function Terminal() {
   }
 
   function generateQueuePosition() {
-    const queuePos = Math.floor(Math.random() * 10) + 1
-
     const payload = {
       name,
       selectedOption,
-      queuePosition: queuePos,
     }
 
-    setUserData(payload)
-    localStorage.setItem('queueData', JSON.stringify(payload))
+    socket.emit('addData', payload)
+
+    setUserData({ ...payload, queuePosition })
+    localStorage.setItem(
+      'queueData',
+      JSON.stringify({ ...payload, queuePosition })
+    )
   }
 
   return (
     <div>
       <span>Olá, qual o seu nome?</span>
       <input onChange={handleName} />
-      <select onSelect={handleSelect}>
+      <select onChange={handleSelect}>
         {optionList.map((option, index) => (
           <option key={index.toString()} value={option}>
             {option}{' '}
