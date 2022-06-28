@@ -24,7 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --ext .js .jsx ./src && eslint --fix"
+    "lint": "eslint --ext .js .jsx ./src && eslint --fix",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -35,8 +36,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "yarn test"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
@@ -56,6 +56,7 @@
   },
   "devDependencies": {
     "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "typed-scss-modules": "^6.5.0"
   }
 }

@@ -1,0 +1,9 @@
+{
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "jsxBracketSameLine": false,
+  "arrowParens": "avoid",
+  "semi": false,
+  "react-hooks/exhaustive-deps": false
+}
