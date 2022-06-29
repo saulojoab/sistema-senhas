@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import socket from 'services/socket'
 
+import styles from './Terminal.module.scss'
+
 export default function Terminal() {
   const [userData, setUserData] = useState(null)
   const [name, setName] = useState('')
   const [selectedOption, setSelectedOption] = useState('')
-  const [queuePosition, setQueuePosition] = useState(0)
 
   const optionList = [
     'Hamburguer',
@@ -21,7 +22,12 @@ export default function Terminal() {
     setSelectedOption(optionList[0])
 
     socket.on('created', position => {
-      setQueuePosition(position + 1)
+      setUserData(old => ({ ...old, queuePosition: position }))
+      const localData = JSON.parse(localStorage.getItem('queueData'))
+      localStorage.setItem(
+        'queueData',
+        JSON.stringify({ ...localData, queuePosition: position })
+      )
     })
 
     return () => {
@@ -35,17 +41,19 @@ export default function Terminal() {
     const queueData = JSON.parse(localStorage.getItem('queueData'))
 
     return (
-      <div>
-        <h1>Olá, {queueData.name}</h1>
-        <p>
-          You are currently in position {queueData.queuePosition} in the queue.
+      <div className={styles.container}>
+        <h1>Olá, {queueData.name} :)</h1>
+        <p className={styles.position}>
+          A sua senha é: <b>#{queueData.queuePosition}</b>
         </p>
-        <p>Você escolheu {queueData.selectedOption}</p>
+        <p className={styles.order}>
+          <b>Seu prato:</b> {queueData.selectedOption}
+        </p>
         <button
           type="button"
           onClick={() => localStorage.removeItem('queueData')}
         >
-          clear
+          Limpar LocalStorage
         </button>
       </div>
     )
@@ -67,17 +75,18 @@ export default function Terminal() {
 
     socket.emit('addData', payload)
 
-    setUserData({ ...payload, queuePosition })
-    localStorage.setItem(
-      'queueData',
-      JSON.stringify({ ...payload, queuePosition })
-    )
+    setUserData(payload)
+    localStorage.setItem('queueData', JSON.stringify(payload))
   }
 
   return (
-    <div>
-      <span>Olá, qual o seu nome?</span>
-      <input onChange={handleName} />
+    <div className={styles.containerForm}>
+      <h1>Olá, qual o seu nome?</h1>
+      <input
+        placeholder="Por favor, insira seu nome..."
+        onChange={handleName}
+      />
+      <span>Selecione o que você quer comer.</span>
       <select onChange={handleSelect}>
         {optionList.map((option, index) => (
           <option key={index.toString()} value={option}>

@@ -1,6 +1,6 @@
-import React from "react";
-import { Router } from "@reach/router";
-import { Admin, Display, Terminal } from "pages";
+import React from 'react'
+import { Router } from '@reach/router'
+import { Admin, Display, Terminal } from 'pages'
 
 export default function App() {
   return (
@@ -9,5 +9,5 @@ export default function App() {
       <Admin path="/admin" />
       <Display path="/display" />
     </Router>
-  );
+  )
 }

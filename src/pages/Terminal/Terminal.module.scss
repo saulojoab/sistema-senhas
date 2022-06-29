@@ -1,0 +1,118 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgb(30, 28, 28);
+
+  h1 {
+    font-family: 'Lato', sans-serif;
+    color: white;
+    font-size: 30px;
+    margin: 10px;
+  }
+
+  .position {
+    font-family: 'Lato', sans-serif;
+    font-weight: 200;
+    color: white;
+    font-size: 30px;
+  }
+
+  .order {
+    font-family: 'Lato', sans-serif;
+    font-weight: 200;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  button {
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid white;
+    color: black;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: rgb(36, 30, 30);
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
+
+.containerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: black;
+
+  h1 {
+    font-family: 'Lato', sans-serif;
+    color: white;
+    font-size: 30px;
+    margin: 10px;
+  }
+
+  input {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid white;
+    color: black;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  select {
+    width: 300px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid white;
+    color: black;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  span {
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+
+  button {
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid white;
+    color: black;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 10px;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: rgb(36, 30, 30);
+      color: white;
+      cursor: pointer;
+    }
+  }
+}

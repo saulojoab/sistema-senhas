@@ -1,0 +1,83 @@
+.orders {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 600px;
+}
+
+.userData {
+  flex: 0.5;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  justify-content: space-between;
+  border: 1px solid white;
+  padding: 10px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  justify-content: space-between;
+  border: 1px solid white;
+  padding: 10px;
+
+  button {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid white;
+    color: black;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: rgb(36, 30, 30);
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgb(29, 28, 28);
+  color: white;
+
+  .title {
+    font-family: 'Lato', sans-serif;
+    font-weight: 200;
+    color: white;
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+  .ordersLabel {
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+  }
+
+  span {
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    color: white;
+    font-size: 18px;
+  }
+}

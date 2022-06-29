@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgb(29, 28, 28);
+  color: white;
+
+  .current {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 150px;
+    color: red;
+  }
+
+  h1 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 200;
+    color: white;
+    font-size: 50px;
+  }
+
+  p {
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 50px;
+  }
+}
